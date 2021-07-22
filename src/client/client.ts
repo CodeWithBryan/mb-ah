@@ -12,6 +12,7 @@ onNet('mb-ah:playerInitialized', (token: string) => {
 
 // Detections
 
+require('./detections/esx');
 require('./detections/verify');
 require('./detections/longJump');
 require('./detections/preventions');
