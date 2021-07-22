@@ -4,7 +4,7 @@ const models = {};
 
 props.forEach(p => models[GetHashKey(p)] = p);
 
-on('entityCreating', (entity: number) => {
+on('entityCreated', (entity: number) => {
     const src = NetworkGetEntityOwner(entity);
     // const entID = NetworkGetNetworkIdFromEntity(entity);
 
@@ -16,7 +16,7 @@ on('entityCreating', (entity: number) => {
                 value: `(${model}) ${models[model]}`
             }]);
 
-            CancelEvent();
+            DeleteEntity(entity);
         }
     }
 });
