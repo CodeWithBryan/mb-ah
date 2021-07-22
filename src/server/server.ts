@@ -1,3 +1,4 @@
+import sendWebhook from './functions/webhook';
 import Players from './classes/players.class';
 
 require('./functions/keepAlive');
@@ -18,3 +19,12 @@ onNet('mb-ah:punish', (type: string, message: string) => {
 
   console.log(`${player.steam} ${type} ${message}`);
 });
+
+// Server initalized... Let's tell discord :)
+
+sendWebhook('main', `General Alert`, `MrBoolean's AntiHack Intialized`, [
+  {
+    name: 'test',
+    value: 'testing123'
+  }
+]);

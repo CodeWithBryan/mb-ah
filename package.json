@@ -18,6 +18,7 @@
     "@citizenfx/server": "^2.0.4125-1",
     "@types/node": "^14.0.27",
     "fivem-js": "^1.5.2",
+    "moment": "^2.29.1",
     "ts-md5": "^1.2.9"
   },
   "devDependencies": {
