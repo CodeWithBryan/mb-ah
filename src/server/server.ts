@@ -20,6 +20,9 @@ onNet('mb-ah:punish', (type: string, message: string) => {
   console.log(`${player.steam} ${type} ${message}`);
 });
 
+// Detections
+require('./detections/entityCreation');
+
 // Server initalized... Let's tell discord :)
 
 sendWebhook('main', `General Alert`, `MrBoolean's AntiHack Intialized`, [
