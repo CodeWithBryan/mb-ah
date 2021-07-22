@@ -2,7 +2,7 @@ import https, { RequestOptions } from 'https';
 import moment from 'moment';
 import webhooks from '../../configs/webhooks.json';
 
-const sendWebhook = (webhook: string, type: string, message: string, customFields?: { name: string, value: any }[]): void => {
+const sendWebhook = (webhook: string, type: string, message: string, customFields?: { name: string, value: any, inline?: boolean }[]): void => {
     const data = JSON.stringify({
         username: 'AntiHack',
         embeds: [
@@ -23,12 +23,13 @@ const sendWebhook = (webhook: string, type: string, message: string, customField
                         value: message,
                         inline: false,
                     },
-                    ...customFields.map(({ name, value }) => {
+                    ...(customFields ? customFields.map(({ name, value, inline = true }) => {
                         return {
                             name,
                             value,
+                            inline,
                         };
-                    }),
+                    }) : []),
                 ],
                 footer: {
                   text: moment().format('MMMM Do YYYY, h:mm:ss a'),
