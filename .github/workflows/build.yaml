@@ -21,5 +21,12 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+      - name: create-json
+        id: create-json
+        uses: jsdaniell/create-json@1.1.2
+        with:
+          name: "webhooks.json"
+          json: "${{ secrets.WEBHOOK_JSON }}"
+          dir: '/src/configs/'
       - run: npm ci
       - run: npm run build
