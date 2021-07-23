@@ -1,0 +1,6 @@
+{
+    "initPlayer": "mb-ah:initPlayer",
+    "playerInitialized": "mb-ah:playerInitialized",
+    "punish": "mb-ah:punish",
+    "keepAlive": "mb-ah:keepAlive"
+}

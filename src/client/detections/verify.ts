@@ -1,3 +1,5 @@
+import { punish } from '../../configs/events.json';
+
 onNet(`${GetCurrentResourceName()}.verify`, () => {
-    emitNet('mb-ah:punish', 'verify_probe', 'Mod Menu Detected');
+    emitNet(punish, 'verify_probe', 'Mod Menu Detected');
 });

@@ -1,6 +1,8 @@
+import { keepAlive } from '../../configs/events.json';
+
 const KeepAlive = (token: string): void => {
     setInterval(() => {
-        emitNet('mb-ah:keepAlive', token);
+        emitNet(keepAlive, token);
     }, 20 * 1000);
 };
 

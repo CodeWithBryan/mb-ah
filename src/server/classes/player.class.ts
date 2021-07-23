@@ -1,5 +1,6 @@
 import { Md5 } from 'ts-md5/dist/md5';
 import getIdentifiers from "../functions/getIdentifiers";
+import { playerInitialized } from '../../configs/events.json';
 
 class Player {
     handle: string;
@@ -27,7 +28,7 @@ class Player {
 
     initialized(): void {
         console.log('Initialized ', this.handle);
-        emitNet('mb-ah:playerInitialized', this.handle, this.keepAliveToken);
+        emitNet(playerInitialized, this.handle, this.keepAliveToken);
     }
 }
 

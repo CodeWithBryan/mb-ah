@@ -1,4 +1,5 @@
 import { sleep } from '../../shared/sleep';
+import { punish } from '../../configs/events.json';
 
 const isPedJumpingCheck = async () => {
     if (IsPedJumping(PlayerPedId())) {
@@ -12,7 +13,7 @@ const isPedJumpingCheck = async () => {
         }
 
         if (length > 250) {
-            emitNet('mb-ah:punish', 'extended_jumping', 'Extended Jumping detected');
+            emitNet(punish, 'extended_jumping', 'Extended Jumping detected');
         }
 
         setTimeout(isPedJumpingCheck, 250);

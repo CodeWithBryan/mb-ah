@@ -1,6 +1,7 @@
 import Players from '../classes/players.class';
+import { punish, keepAlive } from '../../configs/events.json';
 
-onNet('mb-ah:keepAlive', (token: string) => {
+onNet(keepAlive, (token: string) => {
     const _source = (global as any).source;
     const player = Players.get(_source);
     
@@ -22,7 +23,7 @@ setInterval(() => {
     
         if (player.failedTokenChecks >= 3) {
             // We've got more than 3 failed token checks, trigger a kick event
-            emit('mb-ah:punish', 'keep_alive_failed', 'AntiHack Heartbeat Failure');
+            emit(punish, 'keep_alive_failed', 'AntiHack Heartbeat Failure');
         }
     });
 }, 30 * 1000);

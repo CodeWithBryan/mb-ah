@@ -1,5 +1,5 @@
 import https, { RequestOptions } from 'https';
-import moment from 'moment';
+// import moment from 'moment';
 import webhooks from '../../configs/webhooks.json';
 
 const sendWebhook = (webhook: string, type: string, message: string, customFields?: { name: string, value: any, inline?: boolean }[]): void => {
@@ -32,8 +32,9 @@ const sendWebhook = (webhook: string, type: string, message: string, customField
                     }) : []),
                 ],
                 footer: {
-                  text: moment().format('MMMM Do YYYY, h:mm:ss a'),
-                  icon_url: 'https://cdn.discordapp.com/emojis/773971596192907314.gif?v=1'
+                //   text: moment().format('MMMM Do YYYY, h:mm:ss a'),
+                    text: Date.now(),
+                    icon_url: 'https://cdn.discordapp.com/emojis/773971596192907314.gif?v=1'
                 }
             }
         ]

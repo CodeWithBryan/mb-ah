@@ -1,4 +1,5 @@
 import { esx } from '../../configs/general.json';
+import { punish } from '../../configs/events.json';
 
 let detected = false;
 
@@ -13,7 +14,7 @@ on('esx:getSharedObject', (cb: (...params) => void) => {
             return;
         }
 
-        emitNet('mb-ah:punish', 'esx_request_detection', 'Blacklisted Events');
+        emitNet(punish, 'esx_request_detection', 'Blacklisted Events');
         detected = true;
         cb(null);
     }

@@ -1,12 +1,13 @@
 import KeepAlive from "./functions/keepAlive";
+import { initPlayer, playerInitialized } from '../configs/events.json';
 
 require('./commands');
 
 setImmediate(() => {
-  emitNet('mb-ah:initPlayer');
+  emitNet(initPlayer);
 });
 
-onNet('mb-ah:playerInitialized', (token: string) => {
+onNet(playerInitialized, (token: string) => {
   KeepAlive(token);
 });
 

@@ -1,4 +1,5 @@
 import props from '../../configs/props.json';
+import { punish } from '../../configs/events.json';
 
 const models = {};
 
@@ -11,7 +12,7 @@ on('entityCreated', (entity: number) => {
     if (GetEntityType(entity) != 0) {
         const model = GetEntityModel(entity);
         if (models[model]) {
-            emit('mb-ah:punish', 'blacklisted_entity', 'Blacklisted Entity Spawned', src, [{
+            emit(punish, 'blacklisted_entity', 'Blacklisted Entity Spawned', src, [{
                 name: 'Model',
                 value: `(${model}) ${models[model]}`
             }]);

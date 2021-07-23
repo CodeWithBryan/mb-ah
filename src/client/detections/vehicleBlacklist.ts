@@ -1,4 +1,5 @@
 import vehicles from '../../configs/vehicles.json';
+import { punish } from '../../configs/events.json';
 
 const vehicleHashes = vehicles.map(v => GetHashKey(v));
 
@@ -15,7 +16,7 @@ setInterval(() => {
             const model = GetEntityModel(vehicle);
             if (vehicleHashes.includes(model)) {
                 DeleteVehicle(vehicle);
-                emitNet('mb-ah:punish', 'blacklisted_vehicle', 'Blacklisted Vehicle');
+                emitNet(punish, 'blacklisted_vehicle', 'Blacklisted Vehicle');
             }
         }
     }
