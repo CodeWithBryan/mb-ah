@@ -22,11 +22,13 @@ const rcon = new Q3RCon({
 const newEvents = {};
 Object.values(events).forEach(e => newEvents[e] = `${Math.random().toString(36).substring(2)}:${Math.random().toString(36).substring(2)}`);
 const buildPath = path.resolve(__dirname, '..', 'dist');
-fs.writeFile('../dist/events.json', JSON.stringify(newEvents, null, 2), { flag: 'w+' }, err => {
-  if (err) {
-    console.error(err)
-    return
-  }
+fs.mkdir('../dist', () => {
+  fs.writeFile('../dist/events.json', JSON.stringify(newEvents, null, 2), { flag: 'w+' }, err => {
+    if (err) {
+      console.error(err)
+      return
+    }
+  });
 });
 
 const server = {
